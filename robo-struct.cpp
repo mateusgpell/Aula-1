@@ -1,6 +1,6 @@
 #include <stdio.h>
 
-struct distancia 
+struct distancia
 	{int x1;
 	int x2;
 	int x3;
@@ -13,7 +13,7 @@ struct motores
 
 struct distancia LeSensores(void){
 	int distancia1, distancia2, distancia3, s1, s2, s3;
-    printf("Escreva a distancia ao S1, S2, S3 \n");
+    printf("Escreva a distancia ao S1, S2, S3:\n");
     scanf("%d %d %d", &distancia1, &distancia2, &distancia3);
     if(distancia1 < 50){
         s1 = 1;
@@ -31,7 +31,7 @@ struct distancia LeSensores(void){
         s3 = 0;
     }
 
-    struct distancia retorna_sensores = {s1, s2, s3}; 
+    struct distancia retorna_sensores = {s1, s2, s3};
 
     return retorna_sensores;
 }
@@ -72,11 +72,13 @@ void DirigirMotores(struct motores pega_motores){
 
 int main()
 {
+    while(1){
 	struct distancia leituras = LeSensores();
 
 	struct motores comanda = IA(leituras);
 
 	DirigirMotores(comanda);
+    }
 
 	return 0;
 }
